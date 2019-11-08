@@ -1,7 +1,7 @@
 from datetime import datetime
 from os import geteuid
 def getVersion():
-	return("TEST_RLS_CANDIDATE1")
+	return("TEST_RLS_CANDIDATE3")
 def getDate(fmt="uk"):
 	now = datetime.now()
 	if not type(fmt) == str:
