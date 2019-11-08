@@ -38,6 +38,6 @@ def readLines(tkn):
 		f.close()
 	except:
 		return([])
-	for l range(len(lines)):
+	for l in range(len(lines)):
 		lines[l].replace("\n","")
 	return(lines)
