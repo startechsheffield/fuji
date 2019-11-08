@@ -6,7 +6,7 @@ from startech.generalclass import checkRoot
 from startech.generalclass import combineLists
 from startech.generalclass import alignList
 from startech.generalclass import insertList
-from startech.generalclass import getTfile
 from startech.generalclass import setupFiles
 import startech.logclass as log
 import startech.settingsclass as settings
+import startech.tmpclass as tfile
