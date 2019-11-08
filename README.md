@@ -1,4 +1,4 @@
-﻿# startech.py
+# startech.py
 
 This is a simple library made to help make common tasks easier, and is not necessarily made to introduce any new features. Maintained by Star Technology in the UK. This module WILL NOT work on any platform except Linux.
 
@@ -28,7 +28,7 @@ Pre-requisites:
 - You may need to update your default python version, in Ubuntu, run `$ update-alternatives --install /usr/bin/python python /usr/bin/python3.7 5 && update-alternatives --config python` and if asked, choose the highest offered version
 - Install *python3-pip*, in Ubuntu run `$ apt install python3-pip`
 
-This library is available via PyPI, after the pre-requisites are satisfied, `$ python -m pip install startech`.
+This library is available via PyPI, after the pre-requisites are satisfied, `$ python -m pip install startech`. Once finished, run `*$ sudo python3.x*`, then type `*from startech import setupFiles*`and press enter, then type `*setupFiles()*` and press enter again. Finally, type `*exit()*` and press enter to return to the standard command line.
 
 # Functions
 A general breakdown of the functions available. As a rule, if a function fails due to processing problems or bad arguments, a function will return the following values:
@@ -67,6 +67,9 @@ Inserts *data* into *list* at the specified *pos* and returns the resulting list
 
 ## getTfile()  *!!OBSOLETE!!*
 Returns a path to use a temporary file. Due for removal or overhaul in an update due to lack of use cases.
+
+## setupFiles()
+Creates required files and folders for the module if they don't exist already.
 
 ## *log*.write(*token*,*statement*)
 Records *statement* to logfile using the identifier from *token*. Returns boolean of success.
