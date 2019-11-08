@@ -1,7 +1,7 @@
 from datetime import datetime
 from os import geteuid
 def getVersion():
-	return("TEST_RLS_CANDIDATE3")
+	return("TEST_RLS_CANDIDATE4")
 def getDate(fmt="uk"):
 	now = datetime.now()
 	if not type(fmt) == str:
@@ -29,7 +29,9 @@ def getDateTime(fmt="uk",jnr="@"):
 		return(now.strftime("%Y/%m/%d "+jnr+" %H:%M:%S"))
 	else:
 		return(now.strftime(fmt))
-def checkToken(tkn):
+def checkToken(tkn,ibl=False):
+	if not type(ibl) == bool:
+		ibl = False
 	if type(tkn) == str and 3 < len(tkn) < 13:
 		badChar = False
 		exceptions = "1234567890-_"
@@ -39,6 +41,8 @@ def checkToken(tkn):
 				break
 		if badChar == True:
 			return(False)
+		if ibl == True:
+			return(True)
 		try:
 			f = open("/usr/share/stech/api/blacklist.txt","r")
 			lines = f.readlines()

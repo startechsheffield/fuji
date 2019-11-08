@@ -11,7 +11,7 @@ def __convert__(val):
 	except:
 		return(val)
 def getList(tkn):
-	if checkToken(tkn) == False:
+	if checkToken(tkn,True) == False:
 		return([])
 	try:
 		f = open("/usr/share/stech/api/reg_"+tkn+".txt","r")
@@ -25,7 +25,7 @@ def getList(tkn):
 			olist.append(lines[l].split(" : ")[0])
 	return(olist)
 def get(tkn,ttl):
-	if checkToken(tkn) == False or not type(tkn) == str or not type(ttl) == str:
+	if checkToken(tkn,True) == False or not type(tkn) == str or not type(ttl) == str:
 		return([])
 	try:
 		f = open("/usr/share/stech/api/reg_"+tkn+".txt","r")
@@ -38,7 +38,7 @@ def get(tkn,ttl):
 			return(__convert__(lines[l].split(" : ")[1]))
 	return("")
 def set(tkn,ttl,val):
-	if checkToken(tkn) == False or not type(ttl) == str:
+	if checkToken(tkn,True) == False or not type(ttl) == str:
 		return(False)
 	if not (type(val) == str or type(val) == int or type(val) == bool):
 		return(False)
@@ -74,7 +74,7 @@ def set(tkn,ttl,val):
 		return(False)
 	return(True)
 def unset(tkn,ttl):
-	if checkToken(tkn) == False or not type(ttl) == str:
+	if checkToken(tkn,True) == False or not type(ttl) == str:
 		return(False)
 	try:
 		f = open("/usr/share/stech/api/reg_"+tkn+".txt","r")
@@ -94,3 +94,12 @@ def unset(tkn,ttl):
 		return(True)
 	except:
 		return(False)
+def unsetAll(tkn):
+	if checkToken(tkn,True) == False:
+		return(False)
+	lst = getList(tkn)
+	if lst == []:
+		return(False)
+	for s in range(len(lst)):
+		if unset(tkn,lst[s]) == False:
+			return(False)
