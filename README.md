@@ -6,9 +6,7 @@ This is a simple library made to help make common tasks easier, and is not neces
 
 # General Info
 ## Identifier tokens (aka tokens)
-Identifier tokens (often referred to as just "tokens") are a feature that enable *blacklisting*. In the future, they may also enable other features like *telemetry* or *ratelimiting*. Tokens listed in the blacklist file (see below) will be listed as invalid when checked, thus the log and settings modules won't accept it.
-
-An update is due that will allow the settings module to reject blacklisted tokens while still allowing the settings module to accept it.
+Identifier tokens (often referred to as just "tokens") are a feature that enable *blacklisting*. In the future, they may also enable other features like *telemetry* or *ratelimiting*. Tokens listed in the blacklist file (see below) will be listed as invalid when checked, unless the *include* argument is set to true - thus the log module won't accept it.
 
 Tokens should be hard-coded into scripts and should be human-readable as there main purpose is to identify the writing script of a log entry to the user when the log is read. 
 
@@ -41,8 +39,8 @@ A general breakdown of the functions available. As a rule, if a function fails d
 
 Unless otherwise stated.
 
-## checkToken(*token*)
-Checks if an identifier token will meet the criteria for the log and settings modules, and returns a boolean.
+## checkToken(*token*,*include*)
+Checks if an identifier token will meet the criteria for the log and settings modules, and returns a boolean. Inclusion of blacklisted tokens is set by *include* argument. If it's not passed, it assumes False.
 
 ## getVersion()
 Returns a string of the current library version.
