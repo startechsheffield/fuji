@@ -8,7 +8,7 @@ setup(
   author = 'Star Technology',
   author_email = 'startechsheffield@gmx.com',
   url = 'https://github.com/startechsheffield/startech',
-  download_url = 'https://github.com/startechsheffield/startech/archive/0.2.2.tar.gz',
+  download_url = 'https://github.com/startechsheffield/startech/archive/0.3.tar.gz',
   keywords = ['SMALL', 'CONVENIENCE', 'RELEASE-CANDIDATE'],
   classifiers=[
     'Development Status :: 3 - Alpha',
