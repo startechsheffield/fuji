@@ -23,7 +23,8 @@ The logfile is available for direct reading at *"/usr/share/stech/api/log.txt"*,
 # Installation
 
 To install PyPI, install *python3-pip* from the command line.
-This library is available via PyPI, `$ pip3 install startech`.
+Make sure you use python3.x as your default version, you can Google how to do this or how to change your default if needed.
+This library is available via PyPI, `$ python -m pip install startech`.
 
 # Functions
 A general breakdown of the functions available. As a rule, if a function fails due to processing problems or bad arguments, a function will return the following values:
