@@ -1,4 +1,4 @@
-from generalclass import checkToken, getDateTime
+from startech.generalclass import checkToken, getDateTime
 def write(tkn,val):
 	if not type(tkn) == str or not type(val) == str or checkToken(tkn) == False:
 		return(False)
