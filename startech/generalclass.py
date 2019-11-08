@@ -1,7 +1,8 @@
 from datetime import datetime
-from os import geteuid
+from os import geteuid, mkdir
+from os.path import exists
 def getVersion():
-	return("TEST_RLS_CANDIDATE4")
+	return("TEST_RLS_CANDIDATE_5")
 def getDate(fmt="uk"):
 	now = datetime.now()
 	if not type(fmt) == str:
@@ -95,7 +96,19 @@ def insertList(li,val,pos):
 			olist.append(val)
 		olist.append(li[l])
 	return(olist)
-def getTfile(tkn):
+def getTfile(tkn,True):
 	if checkToken(tkn) == False:
 		return("")
 	return("/tmp/stech-tfile-"+tkn+".tmp")
+def setupFiles():
+	if exists("/usr/share/stech") == False:
+		mkdir("/usr/share/stech",mode="0o777")
+	if exists("/usr/share/stech/api") == False:
+		mkdir("/usr/share/stech/api",mode="0o777")
+	if exists("/usr/share/stech/api/blacklist.txt") == True:
+		return(True)
+	f = open("/usr/share/stech/api/blacklist.txt","w")
+	f.write("# This is the blacklist file for the startech python module\n")
+	f.write("# Layout: list the tokens one per line, no markup necasary.\n")
+	f.close()
+	return(True)
