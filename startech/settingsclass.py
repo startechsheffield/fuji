@@ -1,5 +1,5 @@
 from os.path import exists
-from generalclass import checkToken, alignList
+from startech.generalclass import checkToken, alignList
 def __convert__(val):
 	val = val.replace("\n","")
 	if val.lower() == "false":
