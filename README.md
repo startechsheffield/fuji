@@ -22,9 +22,15 @@ The logfile is available for direct reading at *"/usr/share/stech/api/log.txt"*,
 
 # Installation
 
-To install PyPI, install *python3-pip* from the command line.
-Make sure you use python3.x as your default version, you can Google how to do this or how to change your default if needed.
-This library is available via PyPI, `$ python -m pip install startech`.
+Pre-requisites:
+- python3-pip is installed from your system's package manager
+- Python 3.x must be installed NOT python 2.x, to check this run `$ ls /usr/bin | grep python`
+- Run the highest number installed you have installed, i.e. *"python3.4"* or *"python3.7"* (we recommend 3.7)
+- If you only have python 2.x, install python3.7. To do this in Ubuntu, `$ apt install python3.7`
+- You may need to update your default python version, in Ubuntu, run `$ update-alternatives --install /usr/bin/python python /usr/bin/python3.7 5 && update-alternatives --config python` and if asked, choose the highest offered version
+- Install *python3-pip*, in Ubuntu run `$ apt install python3-pip`
+
+This library is available via PyPI, after the pre-requisites are satisfied, `$ python -m pip install startech`.
 
 # Functions
 A general breakdown of the functions available. As a rule, if a function fails due to processing problems or bad arguments, a function will return the following values:
@@ -91,3 +97,5 @@ The log and setting modules require *"/usr/share/stech/api"* to exist and be acc
 We haven't tested the library on different versions of Python and thus don't know what versions it supports for definite. It was written in Python 3.7, where it worked to our original expectations, given it's pre-release status.
 ## My token is showing as invalid but it meets the specified criteria
 Tokens that are found in the blacklist file for the library are rejected as invalid, even if they meet the criteria.
+## I installed the module through pip but it's not available. What happened?
+Pip installs it's installed modules to the version of python from which it was installed. By default in Ubuntu, this will be Python2.4 and won't work. Please follow the installation instructions as above to install properly.
