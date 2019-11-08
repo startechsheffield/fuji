@@ -103,3 +103,4 @@ def unsetAll(tkn):
 	for s in range(len(lst)):
 		if unset(tkn,lst[s]) == False:
 			return(False)
+	return(True)
