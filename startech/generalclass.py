@@ -2,7 +2,7 @@ from datetime import datetime
 from os import geteuid, mkdir
 from os.path import exists
 def getVersion():
-	return("TEST_RLS_CANDIDATE_5")
+	return("TEST_RLS_CANDIDATE_6")
 def getDate(fmt="uk"):
 	now = datetime.now()
 	if not type(fmt) == str:
@@ -96,8 +96,8 @@ def insertList(li,val,pos):
 			olist.append(val)
 		olist.append(li[l])
 	return(olist)
-def getTfile(tkn,True):
-	if checkToken(tkn) == False:
+def getTfile(tkn):
+	if checkToken(tkn,True) == False:
 		return("")
 	return("/tmp/stech-tfile-"+tkn+".tmp")
 def setupFiles():
