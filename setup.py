@@ -2,7 +2,7 @@ from distutils.core import setup
 setup(
   name = 'startech',
   packages = ['startech'],
-  version = '0.4',
+  version = '0.4.1',
   license='MIT',
   description = 'A small library made to make common tasks easier',
   author = 'Star Technology',
