@@ -2,7 +2,7 @@ from datetime import datetime
 from os import geteuid, mkdir, umask
 from os.path import exists
 def getVersion():
-	return("TEST_RLS_CANDIDATE_8")
+	return("TEST_RLS_CANDIDATE_9")
 def getDate(fmt="uk"):
 	now = datetime.now()
 	if not type(fmt) == str:
