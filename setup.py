@@ -1,5 +1,5 @@
 from distutils.core import setup
-pkg_version='0.4.1'
+pkg_version='0.4.2'
 setup(
   name = 'startech',
   packages = ['startech'],
