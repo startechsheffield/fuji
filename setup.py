@@ -1,14 +1,15 @@
 from distutils.core import setup
+pkg_version='0.4.1'
 setup(
   name = 'startech',
   packages = ['startech'],
-  version = '0.4.1',
+  version = pkg_version,
   license='MIT',
   description = 'A small library made to make common tasks easier',
   author = 'Star Technology',
   author_email = 'startechsheffield@gmx.com',
   url = 'https://github.com/startechsheffield/startech',
-  download_url = 'https://github.com/startechsheffield/startech/archive/'+version+'.tar.gz',
+  download_url = 'https://github.com/startechsheffield/startech/archive/'+pkg_version+'.tar.gz',
   keywords = ['SMALL', 'CONVENIENCE', 'RELEASE-CANDIDATE'],
   classifiers=[
     'Development Status :: 3 - Alpha',
