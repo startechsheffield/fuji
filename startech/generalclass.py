@@ -60,7 +60,7 @@ def checkToken(tkn,ibl=False):
 		return(not found)
 	return(False)
 def checkRoot():
-	return(geteuid == 0)
+	return(geteuid() == 0)
 def combineLists(l1,l2):
 	if not type(l1) == list or not type(l2) == list or len(l1) < 1 or len(l2) < 1:
 		return([])
@@ -100,9 +100,9 @@ def setupFiles():
 	if checkRoot() == False:
 		return(False)
 	if exists("/usr/share/stech") == False:
-		mkdir("/usr/share/stech",mode="0o777")
+		mkdir("/usr/share/stech",mode=0o777)
 	if exists("/usr/share/stech/api") == False:
-		mkdir("/usr/share/stech/api",mode="0o777")
+		mkdir("/usr/share/stech/api",mode=0o777)
 	if exists("/usr/share/stech/api/blacklist.txt") == True:
 		return(True)
 	f = open("/usr/share/stech/api/blacklist.txt","w")
