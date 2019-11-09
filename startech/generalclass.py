@@ -1,5 +1,5 @@
 from datetime import datetime
-from os import geteuid, mkdir
+from os import geteuid, mkdir, umask
 from os.path import exists
 def getVersion():
 	return("TEST_RLS_CANDIDATE_7")
@@ -99,6 +99,7 @@ def insertList(li,val,pos):
 def setupFiles():
 	if checkRoot() == False:
 		return(False)
+	umask(0)
 	if exists("/usr/share/stech") == False:
 		mkdir("/usr/share/stech",mode=0o777)
 	if exists("/usr/share/stech/api") == False:
