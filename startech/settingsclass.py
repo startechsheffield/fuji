@@ -24,9 +24,11 @@ def getList(tkn):
 		if not lines[l].find("#") == 0:
 			olist.append(lines[l].split(" : ")[0])
 	return(olist)
-def get(tkn,ttl):
+def get(tkn,ttl,sf=False):
 	if checkToken(tkn,True) == False or not type(tkn) == str or not type(ttl) == str:
 		return([])
+	if not type(sf) == bool:
+		sf = False
 	try:
 		f = open("/usr/share/stech/api/reg_"+tkn+".txt","r")
 		lines = f.readlines()
@@ -35,7 +37,9 @@ def get(tkn,ttl):
 		return([])
 	for l in range(len(lines)):
 		if not lines[l].find("#") == 0 and lines[l].split(" : ")[0] == ttl:
-			return(__convert__(lines[l].split(" : ")[1]))
+			if sf == False:
+				return(__convert__(lines[l].split(" : ")[1]))
+			return(lines[l].split(" : ")[1])
 	return("")
 def set(tkn,ttl,val):
 	if checkToken(tkn,True) == False or not type(ttl) == str:
