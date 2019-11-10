@@ -1,9 +1,9 @@
-from startech.generalclass import checkToken, getDateTime
+from fuji.generalclass import checkToken, getDateTime
 def write(tkn,val):
 	if not type(tkn) == str or not type(val) == str or checkToken(tkn) == False:
 		return(False)
 	try:
-		f = open("/usr/share/stech/api/log.txt","a")
+		f = open("/usr/share/fuji/api/log.txt","a")
 		f.write(tkn+": "+getDateTime()+": "+val)
 		f.close()
 		return(True)
@@ -15,7 +15,7 @@ def read(cnt,tkn=""):
 	if checkToken(tkn) == False:
 		tkn=""
 	try:
-		f = open("/usr/share/stech/api/log.txt","r")
+		f = open("/usr/share/fuji/api/log.txt","r")
 		lines = f.readlines()
 		f.close()
 	except:
