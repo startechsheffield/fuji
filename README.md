@@ -13,7 +13,7 @@ We don't support Python 2.x, but it can potentially be installed manually althou
 
 __Compatability is not guaranteed with any unlisted versions!__
 
-*NOTE:* This module is in RELEASE CANDIDATE stage. Stability is not yet guaranteed.
+*NOTE:* This module is newly released. Stability is not yet guaranteed. More features are planned for release soon.
 
 # General Info
 ## Identifier tokens (aka tokens)
