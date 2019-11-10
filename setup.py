@@ -1,5 +1,6 @@
 from distutils.core import setup
-pkg_version='0.4.2'
+from fuji.generalclass import getVersion
+pkg_version=getVersion()
 setup(
   name = 'startech',
   packages = ['startech'],
