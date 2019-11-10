@@ -10,10 +10,6 @@ if __name__ == "__main__":
 		if silent == False:
 			print(txt)
 		return
-	def wrapUp():
-		set("fuji.module","auto-install",True)
-		tPrint("Process complete.")
-		exit(0)
 	if len(argv) > 1:
 		for a in range(len(argv)):
 			if a > 0:
@@ -47,12 +43,21 @@ if __name__ == "__main__":
 		else:
 			tPrint("  Skipped")
 	tPrint("Creating template: blacklist.txt")
-	if exists("/usr/share/fuji/api/blacklist.txt") == True:
+	if exists("/usr/share/fuji/api/blacklist.txt") == False:
+		f = open("/usr/share/fuji/api/blacklist.txt","w")
+		f.write("# This is the blacklist file for the fuji python module\n")
+		f.write("# Layout: list the tokens one per line, no markup necasary.\n")
+		f.close()
+		tPrint("  Done")
+	else:
 		tPrint("  Skipped")
-		wrapUp()
-	f = open("/usr/share/fuji/api/blacklist.txt","w")
-	f.write("# This is the blacklist file for the fuji python module\n")
-	f.write("# Layout: list the tokens one per line, no markup necasary.\n")
-	f.close()
-	tPrint("  Done")
-	wrapUp()
+	tPrint("  Creating template: log.txt")
+	if exists("/usr/share/fuji/api/log.txt") == False:
+		f = open("/usr/share/fuji/api/log.txt","w")
+		f.write("# This is the logfile for fuji python module\n")
+		f.write("# LAYOUT: token: DATE @ TIME: Message.\n")
+		f.close()
+		tPrint("  Done")
+	else:
+		tPrint("  Skipped")
+	exit(0)
