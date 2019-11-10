@@ -1,16 +1,17 @@
 from distutils.core import setup
-pkg_version='0.4.2'
+pkg_version='1.0'
 setup(
-  name = 'startech',
-  packages = ['startech'],
+  name = 'fuji',
+  packages = ['fuji'],
   version = pkg_version,
   license='MIT',
   description = 'A small library made to make common tasks easier',
   author = 'Star Technology',
   author_email = 'startechsheffield@gmx.com',
-  url = 'https://github.com/startechsheffield/startech',
-  download_url = 'https://github.com/startechsheffield/startech/archive/'+pkg_version+'.tar.gz',
+  url = 'https://github.com/startechsheffield/fuji',
+  download_url = 'https://github.com/startechsheffield/fuji/archive/'+pkg_version+'.tar.gz',
   keywords = ['SMALL', 'CONVENIENCE', 'RELEASE-CANDIDATE'],
+  python_requires='>=3.0',
   classifiers=[
     'Development Status :: 3 - Alpha',
     'Intended Audience :: Developers',
