@@ -43,7 +43,7 @@ To enable persistence, you'll need to use the Python3 interperter directly:
  2. Type `from fuji import settings` and press enter
  3. Type `settings.set("fuji-tfile","persist",True)` and press enter
  4. You should see "True" appear in the command line
- 5. Finally, type "exit()" and press enter one last time
+ 5. Finally, type `exit()` and press enter one last time
 
 # Installation via PyPI
 
