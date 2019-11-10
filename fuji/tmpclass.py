@@ -1,5 +1,5 @@
-from startech.generalclass import checkToken
-from startech.settingsclass import get, set, unsetAll
+from fuji.generalclass import checkToken
+from fuji.settingsclass import get, set, unsetAll
 def getPath(tkn):
 	if checkToken(tkn,True) == False:
 		return("")
