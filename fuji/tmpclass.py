@@ -29,7 +29,9 @@ def append(tkn,val):
 	except:
 		return(False)
 	return(True)
-def readLines(tkn):
+def readLines(tkn,pttrn=""):
+	if not type(pttrn) == str:
+		pttrn = ""
 	if checkToken(tkn) == False:
 		return([])
 	try:
@@ -38,6 +40,13 @@ def readLines(tkn):
 		f.close()
 	except:
 		return([])
+	if not pttrn == "":
+		olist = []
 	for l in range(len(lines)):
 		lines[l].replace("\n","")
-	return(lines)
+		if not pttrn == "" and not lines[l].find(pttrn) < 0:
+			olist.append(lines[l])
+	if pttrn == "":
+		return(lines)
+	else:
+		return(olist)
