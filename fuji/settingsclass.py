@@ -73,6 +73,7 @@ def set(tkn,ttl,val):
 		val = ostr
 	elif not (type(val) == str or type(val) == int or type(val) == bool):
 		return(False)
+	print(val)
 	if exists("/usr/share/fuji/api/reg_"+tkn+".txt") == False:
 		try:
 			f = open("/usr/share/fuji/api/reg_"+tkn+".txt","w")
@@ -104,7 +105,7 @@ def set(tkn,ttl,val):
 		return(False)
 	return(True)
 def unset(tkn,ttl):
-	if checkToken(tkn,True) == False or checkToken(ttl,True):
+	if checkToken(tkn,True) == False or checkToken(ttl,True) == False:
 		return(False)
 	try:
 		f = open("/usr/share/fuji/api/reg_"+tkn+".txt","r")
@@ -112,14 +113,14 @@ def unset(tkn,ttl):
 		f.close()
 	except:
 		return(False)
+	olist = []
 	for l in range(len(lines)):
-		if not lines[l].find("#") == 0 and lines[l].split(" : ")[0] == ttl:
-			lines[l] == ""
+		if lines[l].find(ttl+" : ") < 0:
+			olist.append(lines[l])
 			break
-	lines = alignList(lines)
 	try:
 		f = open("/usr/share/fuji/api/reg_"+tkn+".txt","w")
-		f.writelines(lines)
+		f.writelines(olist)
 		f.close()
 		return(True)
 	except:
