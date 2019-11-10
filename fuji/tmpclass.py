@@ -1,5 +1,5 @@
-from startech.generalclass import checkToken
-from startech.settingsclass import get, set, unsetAll
+from fuji.generalclass import checkToken
+from fuji.settingsclass import get, set, unsetAll
 def getPath(tkn):
 	if checkToken(tkn,True) == False:
 		return("")
@@ -29,15 +29,21 @@ def append(tkn,val):
 	except:
 		return(False)
 	return(True)
-def readLines(tkn):
+def readLines(tkn,pttrn=""):
 	if checkToken(tkn) == False:
 		return([])
+	if not type(pttrn) == str:
+		pttrn = ""
 	try:
 		f = open(getPath(tkn),"r")
 		lines = f.readlines()
 		f.close()
 	except:
 		return([])
+	if not pttrn == "":
+		olist = []
 	for l in range(len(lines)):
 		lines[l].replace("\n","")
+		if not pttrn == "" and not lines[l].find(pttrn) < 0:
+			olist.append(lines[l])
 	return(lines)
