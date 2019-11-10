@@ -73,7 +73,6 @@ def set(tkn,ttl,val):
 		val = ostr
 	elif not (type(val) == str or type(val) == int or type(val) == bool):
 		return(False)
-	print(val)
 	if exists("/usr/share/fuji/api/reg_"+tkn+".txt") == False:
 		try:
 			f = open("/usr/share/fuji/api/reg_"+tkn+".txt","w")
