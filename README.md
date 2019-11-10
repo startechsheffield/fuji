@@ -34,7 +34,7 @@ Temporary files without persistance are stored at *"/tmp/tfile-token.txt"*, wher
 
 ## Temporary files
 Temporary files __without persistance__ are handled by the system - on most systems, this means they're deleted at boot or upon elapse of a certain duration.
-Temporary files __with persistance__ are not available via this module - In most cases where persistence is required, utilising *settings* directly is more advisable.
+Temporary files __with persistance__ are only limited via this module - In most cases where persistence is required, utilising *settings* directly is more advisable. These files can be written or appended without issue but will be deleted after reading for space saving reasons.
 
 *NOTE: "persistence" in this context refers to the ability to remain for extended periods, across reboots, etc.*
 
@@ -79,7 +79,7 @@ To install manually, take the following steps:
  4. OR, right-click -> Extract Here on GUI
  5. Run `$ mkdir /usr/share/fuji`
  6. Run `$ cp ./YOUR-EXTRACTED-DIRECTORY/LICENSE.txt /usr/share/fuji/`
- 7. Run `$ cp -r ./YOUR-EXTRACTED-DIRECTORY/fuji /usr/lib/pythonYOUR-VERSION-NUMBER`
+ 7. Run `$ cp -r /PATH/TO/YOUR-EXTRACTED-DIRECTORY/fuji /usr/lib/pythonYOUR-VERSION-NUMBER`
  8. Finally, run `$ python3 -m fuji` to complete the setup
 
 # Functions
@@ -147,9 +147,9 @@ Deletes the setting *name* associated with *token* and returns a boolean based o
 Returns path to a temporary file which can be accessed directly by the script, if required.
 
 ## *tfile*.readLines(*tkn*,*pttrn*)
-Reads all lines contained in the temporary file contained for *token* - unless *pttrn* is specified, in which case lines containing that search pattern will be return. Both returns are in string format.
+Reads all lines contained in the temporary file contained for *token* - unless *pttrn* is specified, in which case lines containing that search pattern will be returned. Both returns are in string format.
 
-NOTES: Newline escape chars (i.e. "\n") aren't included in the results.
+NOTES: Newline escape chars (i.e. "\n") aren't included in the results. This function will delete persistant files for space-saving reasons.
 
 ## *tfile*.writeLines(*tkn*,*lines*)
 Takes the list *lines* and writes them one-by-one as individual lines to the provided temp file.
