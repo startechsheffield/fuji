@@ -1,8 +1,8 @@
 from datetime import datetime
-from os import geteuid, mkdir, umask
-from os.path import exists
+from os import geteuid
+from sys import version
 def getVersion():
-	return("TEST_RLS_CANDIDATE_9")
+	return("TEST_RLS_CANDIDATE_10")
 def getDate(fmt="uk"):
 	now = datetime.now()
 	if not type(fmt) == str:
@@ -33,9 +33,9 @@ def getDateTime(fmt="uk",jnr="@"):
 def checkToken(tkn,ibl=False):
 	if not type(ibl) == bool:
 		ibl = False
-	if type(tkn) == str and 3 < len(tkn) < 13:
+	if type(tkn) == str and 3 < len(tkn) < 17:
 		badChar = False
-		exceptions = "1234567890-_"
+		exceptions = "1234567890-_."
 		for c in range(len(tkn)):
 			if tkn[c].isalpha() == False and exceptions.find(tkn[c]) < 0:
 				badChar = True
@@ -96,18 +96,6 @@ def insertList(li,val,pos):
 			olist.append(val)
 		olist.append(li[l])
 	return(olist)
-def setupFiles():
-	if checkRoot() == False:
-		return(False)
-	umask(0)
-	if exists("/usr/share/stech") == False:
-		mkdir("/usr/share/stech",mode=0o777)
-	if exists("/usr/share/stech/api") == False:
-		mkdir("/usr/share/stech/api",mode=0o777)
-	if exists("/usr/share/stech/api/blacklist.txt") == True:
-		return(True)
-	f = open("/usr/share/stech/api/blacklist.txt","w")
-	f.write("# This is the blacklist file for the startech python module\n")
-	f.write("# Layout: list the tokens one per line, no markup necasary.\n")
-	f.close()
-	return(True)
+def pythonVersion():
+	v = version.split(" ")[0].split(".")
+	return(v[0]+"."+v[1])
