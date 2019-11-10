@@ -7,13 +7,17 @@ def getPath(tkn):
 def writeLines(tkn,lns):
 	if checkToken(tkn,True) == False or not type(lns) == list or lns == []:
 		return(False)
+	badType = False
+	for l in range(len(lns)):
+		if not type(lns[l]) == str:
+			badType = True
+			break
+		if lns[l].endswith("\n") == False:
+			lns[l] = lns[l] + "\n"
 	try:
 		f = open(getPath(tkn),"w")
 	except:
 		return(False)
-	for l in range(len(lns)):
-		if lns[l].endswith("\n") == False:
-			lns[l] = lns[l] + "\n"
 	f.writelines(lns)
 	f.close()
 	return(True)
