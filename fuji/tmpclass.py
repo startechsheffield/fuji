@@ -1,9 +1,13 @@
 from fuji.generalclass import checkToken
-from fuji.settingsclass import get, set, unsetAll
+from fuji.settingsclass import get, unset
+from os import remove
 def getPath(tkn):
 	if checkToken(tkn,True) == False:
 		return("")
-	return("tfile-"+tkn+".txt")
+	prst = get("fuji-api","persist")
+	if type(prst) == bool and prst == True:
+		return("/usr/share/fuji/pst_tmp_"+tkn+".txt")
+	return("/tmp/tfile_"+tkn+".txt")
 def writeLines(tkn,lns):
 	if checkToken(tkn,True) == False or not type(lns) == list or lns == []:
 		return(False)
@@ -38,12 +42,15 @@ def readLines(tkn,pttrn=""):
 		return([])
 	if not type(pttrn) == str:
 		pttrn = ""
+	pth = getPath(tkn)
 	try:
-		f = open(getPath(tkn),"r")
+		f = open(pth,"r")
 		lines = f.readlines()
 		f.close()
 	except:
 		return([])
+	if not pth.find("/usr/share/") < 0:
+		remove(pth)
 	if not pttrn == "":
 		olist = []
 	for l in range(len(lines)):
