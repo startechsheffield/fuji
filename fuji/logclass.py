@@ -4,7 +4,7 @@ def write(tkn,val):
 		return(False)
 	try:
 		f = open("/usr/share/fuji/api/log.txt","a")
-		f.write(tkn+": "+getDateTime()+": "+val)
+		f.write(tkn+": "+getDateTime()+": "+val+"\n")
 		f.close()
 		return(True)
 	except:
