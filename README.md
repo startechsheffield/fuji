@@ -167,7 +167,7 @@ Appends *line* to temporary file associated with *tkn*.
 The log and setting modules require *"/usr/share/stech/api"* to exist and be accessible to all users in order to function correctly. Without access to it, those modules won't work.
 
 ## The module won't work on my version of Python
-Our module was written in Python3, and does not (and WILL not) officially support any version of Python2. Given it's pre-release status, tests are not yet completed. Python 3 versions that are known to work are listed at the head of this document.
+Our module was written in Python3, and does not (and WILL not) officially support any version of Python2. Given it's newly-released status, tests are not yet completed. Python 3 versions that are known to work are listed at the head of this document.
 
 Pip won't install the module to a Python2.x installation, but it can be downloaded manually and files setup can be forced by using the "-f" or "--force" flags if required. In this case, we aren't responsible for any instability.
 
