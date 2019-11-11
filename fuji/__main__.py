@@ -1,6 +1,6 @@
 from fuji.generalclass import checkRoot, pythonVersion
 from fuji.settingsclass import set
-from os import mkdir, umask, remove
+from os import mkdir, umask
 from os.path import exists
 from sys import exit, argv
 if __name__ == "__main__":
