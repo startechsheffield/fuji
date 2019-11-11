@@ -62,7 +62,7 @@ def checkToken(tkn,ibl=False):
 def checkRoot():
 	return(geteuid() == 0)
 def combineLists(l1,l2):
-	if not type(l1) == list or not type(l2) == list or len(l1) < 1 or len(l2) < 1:
+	if not type(l1) == list or not type(l2) == list:
 		return([])
 	for a in range(len(l2)):
 		found = False
@@ -74,7 +74,7 @@ def combineLists(l1,l2):
 			l1.append(l2[a])
 	return(l1)
 def alignList(li):
-	if not type(li) == list or len(li) < 2:
+	if not type(li) == list:
 		return([])
 	olist = []
 	for i in range(len(li)):
