@@ -48,7 +48,7 @@ def split(li,pos):
 			olist2.append(li[l])
 		return(olist1,olist2)
 def removeDuplicates(li):
-	return(combine([],li)
+	return(combine([],li))
 def snip(li,mul):
 	if not type(li) == list or not (type(mul == str or type(mul) == int):
 		return([])
