@@ -14,7 +14,7 @@ setup(
   keywords = ['SMALL', 'CONVENIENCE', 'RELEASE-CANDIDATE'],
   python_requires='>=3.0',
   classifiers=[
-    'Development Status :: 3 - Alpha',
+    'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
     'Topic :: Software Development :: Build Tools',
     'License :: OSI Approved :: MIT License',
@@ -23,5 +23,6 @@ setup(
     'Programming Language :: Python :: 3.6',
     'Programming Language :: Python :: 3.7',
     'Programming Language :: Python :: 3.8',
+    'Operating System :: POSIX :: Linux'
   ],
 )
