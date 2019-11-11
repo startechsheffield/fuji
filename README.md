@@ -71,7 +71,7 @@ To install manually, take the following steps:
   - Run `print(version)`
   - You'll see `python 3.x.x ...` REMEMBER that 3.x.x version number!
   - Quit the interpreter with `exit()`
- 2. Download the latest release tarball (".tar.gz" file)
+ 2. Download the latest release tarball (".tar.gz" file) - cloning the master repository is not recommended as downloads initiated during us preparing an update can cause incompatibilites between the various files.
  3. Extract it in a command line:
   - Set `$ tarfile="/path/to.your/tarball"`
   - Run `$ cd $tarfile`
@@ -86,7 +86,6 @@ To install manually, take the following steps:
 A general breakdown of the functions available.
 
 *NOTE: As a rule, if a function fails due to processing problems or bad arguments, a function will return the following values:*
-
  - If a boolean is returned when successful, False will be returned if failed
  - If a string is returned when successful, a blank string (i.e. "") will be returned if failed
  - If a list is returned when successful, a blank list (i.e. []) will be returned if failed
@@ -109,17 +108,6 @@ Very similar to getDate and getTime, but takes an additional argument - "seperat
 
 ## checkRoot()
 Takes no arguments, returns True if it is being run as root or False otherwise.
-
-## combineLists(*list1*,*list2*)
-Progresses through the entries of *list2* and appends them to *list1* if not already present, returning the resulting list.
-
-## alignList(*list*)
-Removes blank entries from the provided list and returns the resulting list.
-
-## insertList(*list*,*pos*,*data*)
-Inserts *data* into *list* at the specified *pos* and returns the resulting list.
-
-*NOTE: This function WILL fail unless run by a root user for file permission and ownership reasons.*
 
 ## *log*.write(*token*,*statement*)
 Records *statement* to logfile using the identifier from *token*. Returns boolean of success.
@@ -161,6 +149,24 @@ Appends *line* to temporary file associated with *tkn*.
 
 *NOTES: Newline escape chars (i.e. "\n") don't need to be incuded in this argument, but can be handled if they are.*
 
+## *lists*.combine(*list1*,*list2*)
+Progresses through the entries of *list2* and appends them to *list1* if not already present, returning the resulting list.
+
+## *lists*.clean(*list*)
+Removes blank entries from the provided list and returns the resulting list.
+
+## *lists*.insert(*list*,*pos*,*data*)
+Inserts *data* into *list* at the specified *pos* and returns the resulting list.
+
+## *lists*.removeDuplicates(*list*)
+Removes duplicate entries from *list* and returns the result.
+
+## *lists*.split("list*,*pos*)
+Splits *list* into 2 lists. *pos* will be the index of the entry that will be at index 0 on the second list. Returns both lists.
+
+## *lists*.snip(*list*,*multi*)
+*multi* can be in string or integer format. If it's in string format, it will delete __the first__ entry that is an __exact match__ that string. In integer format, it will delete whatever is stored at that index.
+
 # Troubleshooting
 
 ## Many functions are always failing
@@ -184,9 +190,9 @@ In some Linux versions, Python3 is not set by default. If this is the case for y
  1. Run `$ ls /usr/bin | grep python3`
  2. You SHOULD see a list of commands, e.g. *python3.6*, if not install a python3 version as instructed above
  3. Run `$ ln -s /usr/bin/python3.x /usr/bin/python3` where "*python3.x"* is your version of python found in the previous command. If you saw mutiple versions, you can choose any you like, however generally the highest installed version is recommeded for compatibility reasons.
- 
- ## You may experience the error "setuptools: Module not found" when installing via pip:
- To fix this, run command `$ apt install python3-setuptools` in Ubuntu.
+
+## You may experience the error "setuptools: Module not found" when installing via pip:
+To fix this, run command `$ apt install python3-setuptools` in Ubuntu.
 
 ## If you experience any other errors, feel free to open a pull request or contact us and let us know what the issue is. We appreciate any help.
 
