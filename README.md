@@ -58,7 +58,7 @@ To install this module via PyPI, once the pre-requisites are satisfied, run the 
  2. `$ sudo python3 -m fuji`*NOTE: Again, "sudo" is needed here. The function won't proceed without it.*
  3. Installation complete!
 
-__NOTE: If `$ python3 ...` command fails with error "Command not found", see Troubleshooting below.__
+__NOTE: If `$ python3 ...` command fails with error "Command not found" or "setuptools: module not found", see Troubleshooting below.__
 
 # Manual installation
 
@@ -184,6 +184,9 @@ In some Linux versions, Python3 is not set by default. If this is the case for y
  1. Run `$ ls /usr/bin | grep python3`
  2. You SHOULD see a list of commands, e.g. *python3.6*, if not install a python3 version as instructed above
  3. Run `$ ln -s /usr/bin/python3.x /usr/bin/python3` where "*python3.x"* is your version of python found in the previous command. If you saw mutiple versions, you can choose any you like, however generally the highest installed version is recommeded for compatibility reasons.
+ 
+ ## You may experience the error "setuptools: Module not found" when installing via pip:
+ To fix this, run command `$ apt install python3-setuptools` in Ubuntu.
 
 ## If you experience any other errors, feel free to open a pull request or contact us and let us know what the issue is. We appreciate any help.
 
