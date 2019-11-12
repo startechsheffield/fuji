@@ -50,7 +50,7 @@ def split(li,pos):
 def removeDuplicates(li):
 	return(combine([],li))
 def snip(li,mul):
-	if not type(li) == list or not (type(mul == str or type(mul) == int):
+	if not type(li) == list or not (type(mul) == str or type(mul) == int):
 		return([])
 	for l in range(len(li)):
 		if type(mul) == int and l == mul:
