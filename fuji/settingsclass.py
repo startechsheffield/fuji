@@ -1,5 +1,6 @@
 from os.path import exists
-from fuji.generalclass import checkToken, alignList
+from fuji.generalclass import checkToken
+from fuji.listclass import align
 def __checkstr__(val):
 	if not val.find("\n") < 0:
 		return(False)
