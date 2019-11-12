@@ -1,5 +1,5 @@
 from fuji.generalclass import checkToken
-from fuji.settingsclass import get, unset
+from fuji.settingsclass import get
 from os import remove
 def getPath(tkn):
 	if checkToken(tkn,True) == False:
